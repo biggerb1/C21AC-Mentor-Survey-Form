@@ -1,0 +1,262 @@
+<head>
+    <title>C21AC Mentor Survey Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald" rel="stylesheet">
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Oswald', sans-serif;
+            color: #222222;
+        }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body,
+        p {
+            font-family: 'Open Sans', sans-serif;
+            color: #222222;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .loading-overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-width: 100%;
+            height: 100%;
+            min-height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 50;
+        }
+
+        .loading-overlay img {
+            position: relative;
+            top: 50%;
+            left: 50%;
+        }
+
+        .outer-container {
+            width: 900px;
+            box-sizing: border-box;
+            padding: 20px;
+            margin: 0 auto;
+            background: #eee;
+            border: #777 solid 1px;
+            border-top: 0;
+            border-bottom: 0;
+        }
+
+        .section-container {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px 10px;
+            margin: 20px 0px;
+            border: #777 solid 1px;
+        }
+
+        .formelement {
+            display: flex;
+            margin: 5px 0px;
+        }
+
+        .formlabel {
+            display: inline-flex;
+            font-family: 'Open Sans', sans-serif;
+            color: #222222;
+            box-sizing: border-box;
+            padding: 5px 10px;
+            max-width: 45%;
+            min-width: 35%;
+            overflow: auto;
+        }
+
+        .forminput {
+            display: inline-flex;
+            box-sizing: border-box;
+            padding: 5px 10px;
+            font-family: 'Open Sans', sans-serif;
+            color: #222222;
+            font-size: 16px;
+            max-width: 54%;
+        }
+        
+        .slider {
+            display: inline-flex;
+            box-sizing: border-box;
+            margin: 5px 0px;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 46%;
+            height: 24px; 
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        .slider:hover {
+            opacity: 1;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #beaf87;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px; 
+            height: 25px;
+            background: #beaf87;
+            cursor: pointer;
+        }
+        .slider-value {
+            display: inline-flex;
+            box-sizing: border-box;
+            margin: 5px 0px;
+            width: 8%;            
+            font-family: 'Open Sans', sans-serif;
+            color: #222222;
+            font-size: 16px;
+            justify-content: center;
+        }
+        
+        .radio_container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-right: 25px;
+            margin-left: -4px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .radio_container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .radio_checkmark {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            height: 25px;
+            width: 25px;
+            background-color: #999;
+        }
+        
+        .radio_container:hover input ~ .radio_checkmark {
+          background-color: #aaa;
+        }
+        .radio_container input:checked ~ .radio_checkmark {
+            background-color: #beaf87;
+        }
+        .radio_checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .radio_container input:checked ~ .radio_checkmark:after {
+            display: block;
+        }
+        .radio_container .radio_checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="handle_loadingoverlay" class="loading-overlay"><img src="images/loading.gif" /></div>
+    <div class="outer-container">
+        <h1 style="text-align: center;">C21AC Mentor Survey Form</h1>
+        <p style="text-align: center;">Welcome to the Mentor Survey Form, Please fill out the following sections based on your input</p>
+        <p style="text-align: center;"><a href="mailto:mkhurramaziz@gmail.com">Report any issues with the form</a></p>
+        <form>
+            <fieldset class="section-container">
+                <legend>General Information:</legend>
+
+                <div class="formelement">
+                    <label class="formlabel">Mentor Name (Select from List):</label>
+                    <select name="Mentor" class="forminput formselect">
+                        <option value="Michael Cordero">Michael Cordero</option>
+                    </select>
+                </div>
+
+                <div class="formelement">
+                    <label class="formlabel">Mentee Name (Select from List):</label>
+                    <select name="Mentee" id="handle_agentselector" class="forminput formselect"></select>
+                </div>                                
+            </fieldset>
+            
+            <fieldset class="section-container">
+                <legend>Agent Engagement</legend>
+                
+                <div class="formelement">
+                    <label class="formlabel">Checklist Completion</label>
+                    <input data-valuecontainerID="sld01" data-slidertype="0to100percent" type="range" min="0" max="10" value="0" class="slider" name="checklist_completion">
+                    <label class="slider-value" id="sld01">0%</label>
+                </div>
+                
+                <div class="formelement">
+                    <label class="formlabel">Attended Inspection Training</label>
+                    <label class="radio_container">Yes
+                        <input type="radio" name="attended_inspection_training" value="Yes">
+                        <span class="radio_checkmark"></span>
+                    </label>
+                    <label class="radio_container">No
+                        <input type="radio" name="attended_inspection_training" value="No">
+                        <span class="radio_checkmark"></span>
+                    </label>
+                </div>
+                
+                <div class="formelement">
+                    <label class="formlabel">Live Listing Presentation Training</label>
+                    <label class="radio_container">Yes
+                        <input type="radio" name="live_listing_presentation_training" value="Yes">
+                        <span class="radio_checkmark"></span>
+                    </label>
+                    <label class="radio_container">No
+                        <input type="radio" name="live_listing_presentation_training" value="No">
+                        <span class="radio_checkmark"></span>
+                    </label>
+                </div>
+                
+                <div class="formelement">
+                    <label class="formlabel">Alton Clark University / Training Completion</label>
+                    <input data-valuecontainerID="sld02" data-slidertype="0to100percent" type="range" min="0" max="10" value="0" class="slider" name="ACR_university_training_completion">
+                    <label class="slider-value" id="sld02">0%</label>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+
+    <script type="application/javascript" src="index-functions.js"></script>
+</body>
